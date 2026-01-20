@@ -1,6 +1,6 @@
 <!--
     Author: Joonas Ojakangas
-    Date: 2026-01-16
+    Date: 2026-01-20
   -->
 
 1. Beginning the Beginner's series
