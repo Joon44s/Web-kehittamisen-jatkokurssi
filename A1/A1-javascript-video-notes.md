@@ -4,10 +4,10 @@
   -->
 
 1. Beginning the Beginner's series
-Lyhyt aloitusvideo, jossa käytiin läpi mitä sarja sisältää ja miten kokonaisuus etenee. Hyvä lähtökohta hahmottaa kokonaisuutta.
+Lyhyt aloitusvideo, jossa käytiin läpi mitä sarja sisältää ja miten kokonaisuus etenee.
 
 2. What Is JavaScript
-Perusjohdanto JavaScriptiin ja sen rooliin web-kehityksessä. Selkeytti hyvin, miksi kieli on edelleen niin laajassa käytössä.
+Perusjohdanto JavaScriptiin ja sen rooliin web-kehityksessä.
 
 3. Running JavaScript: browser or server
 Opin, että JavaScriptiä voi ajaa sekä selaimessa että Node.js:llä. Molemmilla on omat vahvuutensa riippuen käyttötarkoituksesta.
@@ -16,127 +16,127 @@ Opin, että JavaScriptiä voi ajaa sekä selaimessa että Node.js:llä. Molemmil
 Käytiin läpi tarvittavat työkalut, kuten editori ja Node.js. . Hyvä muistutus siitä, että toimiva ympäristö helpottaa oppimista.
 
 5. Demo: Building your toolbox
-Käytännön esimerkki työkalujen asentamisesta. Selkeä ja helppo seurata.
+esimerkki työkalujen asentamisesta. 
 
 6. Creating your first application
-Ensimmäinen pieni ohjelma auttoi hahmottamaan, miten JavaScript-koodi suoritetaan käytännössä.
+Hello World. Miten JavaScript-koodi suoritetaan käytännössä.
 
 7. Comments
 Kerrattiin kommenttien merkitys ja se, miten ne parantavat koodin luettavuutta.
 
 8. Demo: Comments
-Lyhyt demo kommenttien käytöstä. Hyvä esimerkki siitä, miten pienillä asioilla voi selkeyttää koodia.
+Lyhyt demo kommenttien käytöstä.
 
 9. Declaring variables
-Perusasiaa muuttujista ja siitä, milloin käytetään let ja milloin const. Selkeä ja ytimekäs.
+muuttujat ja milloin käytetään let ja milloin const.
 
 10. Demo: Declaring variables
-Käytännön esimerkit muuttujien määrittelystä. Auttoi vahvistamaan perusymmärrystä.
+esimerkit muuttujien määrittelystä. 
 
 11. Working with strings
-Merkkijonojen käsittelyä ja perusoperaatioita. Hyvä kertaus aiheesta.
+Merkkijonojen käsittelyä ja perusoperaatioita.
 
 12. Demo: Working with strings
-Käytännön esimerkkejä merkkijonojen muokkauksesta. Selkeytti teoriaa.
+Käytännön esimerkkejä merkkijonojen muokkauksesta.
 
 13. Using template literals to format strings
-Template literalit osoittautuivat todella käteviksi merkkijonojen rakentamisessa.
+literalit käteviä merkkijonojen rakentamisessa.
 
 14. Demo: Using template literals to format strings
-Demo näytti konkreettisesti, miten template literalit helpottavat koodia.
+Demo siitä miten template literalit helpottavat koodia.
 
 15. Data types in JavaScript
-Käytiin läpi JavaScriptin tietotyypit ja niiden erityispiirteet. Hyvä peruspaketti.
+Käytiin läpi JavaScriptin tietotyypit ja niiden erityispiirteet.
 
 16. Demo: Data types in JavaScript
 Esimerkit auttoivat hahmottamaan tietotyyppien käytännön eroja.
 
 17. Math in JavaScript
-Perusmatematiikkaa ja Math-olion hyödyllisiä funktioita. Yllättävän monipuolinen kokonaisuus.
+Perusmatematiikkaa ja Math-olion hyödyllisiä funktioita.
 
 18. Demo: Math in JavaScript
-Käytännön esimerkkejä Math-funktioiden käytöstä. Selkeä ja helppo seurata.
+Käytännön esimerkkejä Math-funktioiden käytöstä.
 
 19. Converting strings to numbers
-Tyyppimuunnokset ja niiden vaikutukset ohjelman toimintaan. Hyvä muistutus siitä, että JavaScript tekee paljon automaattisesti.
+Tyyppimuunnokset ja niiden vaikutukset ohjelman toimintaan.
 
 20. Demo: Converting strings to numbers
-Käytännön esimerkit muunnoksista. Auttoi ymmärtämään mahdollisia sudenkuoppia.
+Käytännön esimerkit muunnoksista.
 
 21. Handling errors with try/catch/finally
-Virheenkäsittelyn perusidea ja miksi try/catch on tärkeä. Selkeä kokonaisuus.
+Virheenkäsittelyn perusidea ja try/catch.
 
 22. Demo: Handling errors with try/catch/finally
-Demo näytti konkreettisesti, miten virhetilanteita voidaan hallita.
+Demo virhetilanteista ja hallinta.
 
 23. Dates
-Päivämäärien käsittelyä ja Date-olion perustoimintoja. Hyvä peruspaketti.
+Päivämäärien käsittelyä ja Date-olion perustoimintoja.
 
 24. Demo: Dates
 Esimerkit auttoivat ymmärtämään Date-olion käyttöä käytännössä.
 
 25. Boolean logic with if statements
-Ehtolauseiden peruslogiikkaa ja boolean-arvojen käyttöä. Selkeä ja helposti ymmärrettävä.
+Ehtolauseiden peruslogiikkaa ja boolean-arvojen käyttöä.
 
 26. Demo: Boolean logic with if statements
-Käytännön esimerkkejä if-rakenteista. Hyvä tuki teoriapuolelle.
+Käytännön esimerkkejä if-rakenteista.
 
 27. Boolean logic with switch and other syntax
-Switch-rakenne vaihtoehtona pitkille if/else-ketjuille. Hyödyllinen lisä työkalupakkiin.
+Switch-rakenne vaihtoehtona  if/elselle.
 
 28. Demo: Boolean logic with switch and other syntax
-Demo näytti, miten switch toimii käytännössä.
+Demo switch käytännössä.
 
 29. Creating arrays
-Taulukoiden luominen ja peruskäyttö. Selkeä ja ytimekäs.
+Taulukoiden luominen ja peruskäyttö.
 
 30. Demo: Creating arrays
 Käytännön esimerkkejä taulukoiden rakentamisesta.
 
 31. Populating arrays
-Miten taulukkoon lisätään dataa ja miten sitä muokataan. Hyvä jatko edelliselle videolle.
+Miten taulukkoon lisätään dataa ja miten sitä muokataan.
 
 32. Demo: Populating arrays
 Esimerkit taulukon täyttämisestä. Selkeä ja käytännönläheinen.
 
 33. Array methods
-Keskeiset taulukkometodit, kuten push, pop ja slice. Hyödyllinen kokonaisuus.
+Keskeiset taulukkometodit, kuten push, pop ja slice.
 
 34. Demo: Array methods
-Käytännön esimerkkejä metodien käytöstä. Auttoi hahmottamaan, milloin mitäkin kannattaa käyttää.
+Eeimerkkejä metodien käytöstä. Auttoi hahmottamaan mitä kannattaa käyttää.
 
 35. Loops
-Silmukoiden perusidea ja eri silmukkatyypit. Hyvä kertaus.
+Silmukoiden perusidea ja eri silmukkatyypit.
 
 36. Demo: Loops
-Esimerkit silmukoiden käytöstä oikeassa koodissa.
+Esimerkit silmukoiden käytöstä.
 
 37. Functions
-Funktioiden rooli ohjelmoinnissa ja perusmäärittely. Selkeä ja tärkeä aihe.
+Funktioiden rooli ohjelmoinnissa ja perusmäärittely.
 
 38. Demo: Functions
 Käytännön esimerkkejä funktioiden kirjoittamisesta.
 
 39. Arrow and anonymous functions
-Nuolifunktiot ja anonyymit funktiot modernina syntaksina. Hyvä lisä perusfunktioiden rinnalle.
+Nuolifunktiot/anonyymit funktiot modernina syntaksina.
 
 40. Demo: Arrow and anonymous functions
-Esimerkit uuden syntaksin käytöstä. Selkeytti aiheen hyvin.
+Esimerkit uuden syntaksin käytöstä.
 
 41. JavaScript Object Notation (JSON)
-JSONin perusidea ja miksi sitä käytetään datan siirrossa. Tärkeä aihe web-kehityksessä.
+JSONin perusidea ja miksi sitä käytetään datan siirrossa.
 
 42. Demo: JavaScript Object Notation (JSON)
-Käytännön esimerkkejä JSON-datan käsittelystä.
+Esimerkkejä JSON-datan käsittelystä.
 
 43. Objects in JavaScript
-Olioiden rakenne ja miten niillä mallinnetaan tietoa. Selkeä ja hyödyllinen kokonaisuus.
+Olioiden rakenne ja miten niillä mallinnetaan tietoa.
 
 44. Demo: Objects in JavaScript
 Esimerkit olioiden käytöstä käytännössä.
 
 45. Promises for long running operations
-Promiset ja niiden rooli asynkronisessa ohjelmoinnissa. Hyvä pohja async/awaitille.
+Promiset ja niiden rooli asynkronisessa ohjelmoinnissa.
 
 46. Demo: Promises for long running operations
 Käytännön esimerkkejä promise-rakenteesta.
@@ -145,10 +145,10 @@ Käytännön esimerkkejä promise-rakenteesta.
 Async/await tekee asynkronisesta koodista selkeämpää ja helpommin luettavaa.
 
 48. Demo: async/await for managing promises
-Esimerkit async/awaitin käytöstä. Selkeä ja käytännönläheinen.
+Esimerkit async/awaitin käytöstä.
 
 49. Package management
-NPM ja pakettien hallinta osana JavaScript-kehitystä. Tärkeä osa modernia työskentelyä.
+NPM ja pakettien hallinta osana JavaScript-kehitystä.
 
 50. Demo: Package management
 Käytännön esimerkki pakettien asentamisesta ja käytöstä.
