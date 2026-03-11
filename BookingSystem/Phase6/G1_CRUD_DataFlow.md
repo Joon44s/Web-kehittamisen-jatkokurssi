@@ -20,7 +20,7 @@ sequenceDiagram
         B-->>F: 400 Bad Request + errors[]
         F-->>U: Show validation message
     else Validation OK
-        B->>S: create Resource(data)
+        B->>S: createResource(data)
         S->>DB: INSERT INTO resources
         DB-->>S: Result / Duplicate error
 
@@ -36,7 +36,10 @@ sequenceDiagram
     end
 ```
 
-# 2️⃣ READ — Resource (Sequence Diagram)
+---
+
+# 2️⃣ READ – Resource (Sequence Diagram)
+
 ```mermaid
 sequenceDiagram
     participant U as User (Browser)
@@ -47,9 +50,10 @@ sequenceDiagram
 
     U->>F: Load resource list
     F->>B: GET /api/resources
+
     B->>S: getAllResources()
     S->>DB: SELECT * FROM resources
-    
+
     alt Success
         DB-->>S: Resource rows
         S-->>B: Data object
@@ -63,7 +67,9 @@ sequenceDiagram
     end
 ```
 
-# 3️⃣ UPDATE — Resource (Sequence Diagram)
+---
+
+# 3️⃣ UPDATE – Resource (Sequence Diagram)
 
 ```mermaid
 sequenceDiagram
@@ -75,7 +81,9 @@ sequenceDiagram
     participant DB as PostgreSQL
 
     U->>F: Edit data and click Save
+    F->>F: Client-side validation
     F->>B: PUT /api/resources/:id (JSON)
+
     B->>V: Validate request
     V-->>B: Validation result
 
@@ -85,7 +93,7 @@ sequenceDiagram
     else Validation OK
         B->>S: updateResource(id, data)
         S->>DB: UPDATE resources SET... WHERE id = :id
-        
+
         alt Resource not found
             DB-->>S: 0 rows affected
             S-->>B: Not Found
@@ -100,18 +108,21 @@ sequenceDiagram
     end
 ```
 
-# 4️⃣ DELETE — Resource (Sequence Diagram)
+---
+
+# 4️⃣ DELETE – Resource (Sequence Diagram)
 
 ```mermaid
 sequenceDiagram
     participant U as User (Browser)
-    participant F as Frontend (form.js)
+    participant F as Frontend (resources.js)
     participant B as Backend (Express Route)
     participant S as Resource Service
     participant DB as PostgreSQL
 
     U->>F: Click Delete button
     F->>B: DELETE /api/resources/:id
+
     B->>S: deleteResource(id)
     S->>DB: DELETE FROM resources WHERE id = :id
 
