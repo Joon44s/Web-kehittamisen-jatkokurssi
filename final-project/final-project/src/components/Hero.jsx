@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const Hero = () => {
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -19,9 +21,12 @@ const Hero = () => {
           Vuokraa unelmiesi muumipuku — täydellinen ratkaisu juhliin, Halloweeniin ja hauskanpitoon! 🎉
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <a href="#yhteystiedot" className="bg-accent hover:bg-orange-400 text-gray-900 font-bold py-4 px-8 rounded-full text-lg transition transform hover:scale-105 shadow-lg">
+          
+          {/* TÄMÄ ON MUUTETTU: Link to="/order" */}
+          <Link to="/order" className="bg-accent hover:bg-orange-400 text-gray-900 font-bold py-4 px-8 rounded-full text-lg transition transform hover:scale-105 shadow-lg">
             Tee Tilaus Nyt 📝
-          </a>
+          </Link>
+
           <a href="#puvut" className="bg-white/10 backdrop-blur-sm hover:bg-white/30 text-white font-bold py-4 px-8 rounded-full text-lg transition border-2 border-white">
             Katso Katalogi 🎭
           </a>
