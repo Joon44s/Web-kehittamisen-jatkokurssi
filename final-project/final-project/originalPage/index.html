@@ -1,0 +1,697 @@
+<!--
+    Author: Joonas Ojakangas
+    Date: 2025-012-12
+  -->
+
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MuumiRent - Vuokraa hauskoja ja laadukkaita muumipukuja juhliin, tapahtumiin ja Halloweeniin. Kaikki muumihahmot saatavilla!">
+    <title>MuumiRent - Muumipukuvuokraamo | Puvut Juhliin & Halloweeniin</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#5B9BD5',
+                        secondary: '#4A7BA7',
+                        accent: '#FFB347',
+                        moomin: '#E8F4F8',
+                        pink: '#F2448A',
+                        blue: '#0096FF',
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        display: ['Fredoka', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Animaatiot */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes bounce-gentle {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .bounce-gentle {
+            animation: bounce-gentle 2s ease-in-out infinite;
+        }
+        
+        /* Hero gradient overlay */
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(91, 155, 213, 0.5) 0%, rgba(74, 123, 167, 0.85) 100%);
+        }
+        
+        /* Muumi-teemainen kortti hover */
+        .moomin-card {
+            transition: all 0.3s ease;
+        }
+        
+        .moomin-card:hover {
+            transform: translateY(-10px) rotate(1deg);
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-900 bg-moomin">
+
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+    <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div class="flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="text-4xl bounce-gentle">🎭</div>
+                <h1 class="text-2xl sm:text-3xl font-display font-bold text-primary">MuumiRent</h1>
+            </div>
+            
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex space-x-8 text-gray-700 font-semibold">
+                <li><a href="#home" class="hover:text-primary transition">Etusivu</a></li>
+                <li><a href="#about" class="hover:text-primary transition">Tietoa</a></li>
+                <li><a href="catalog.html" class="hover:text-primary transition">Katalogi</a></li>
+                <li><a href="order.html" class="hover:text-primary transition">Tilaus</a></li>
+                <li><a href="#yhteystiedot" class="hover:text-primary transition">Yhteystiedot</a></li>
+            </ul>
+            
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-gray-700 text-2xl" aria-label="Avaa valikko">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <ul id="menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-md text-center">
+            <li><a href="#home" class="block px-4 py-2 hover:text-primary transition">Etusivu</a></li>
+            <li><a href="catalog.html" class="block px-4 py-2 hover:text-primary transition">Katalogi</a></li>
+            <li><a href="order.html" class="block px-4 py-2 hover:text-primary transition">Tilaus</a></li>
+            <li><a href="#yhteystiedot" class="block px-4 py-2 hover:text-primary transition">Yhteystiedot</a></li>
+        </ul>
+    </nav>
+    </header>
+
+    <main>
+        <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img 
+                    src="images/kuva1.webp" 
+                    alt="Ihmisiä iloisissa muumipuvuissa juhlimassa" 
+                    class="w-full h-full object-cover"
+                    loading="eager"
+                >
+                <div class="absolute inset-0 hero-overlay"></div>
+            </div>
+            
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center text-white fade-in-up">
+                <div class="text-6xl sm:text-7xl lg:text-8xl mb-6 animate-bounce">🌟</div>
+                <h2 class="text-5xl sm:text-6xl lg:text-7xl font-display font-bold mb-6 leading-tight">
+                    Ryhdy muumiksi!
+                </h2>
+                <p class="text-xl sm:text-2xl lg:text-3xl mb-8 font-light max-w-3xl mx-auto">
+                    Vuokraa unelmiesi muumipuku — täydellinen ratkaisu juhliin, Halloweeniin ja hauskanpitoon! 🎉
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="order.html" class="bg-accent hover:bg-orange-400 text-gray-900 font-bold py-4 px-8 rounded-full text-lg transition transform hover:scale-105 shadow-lg">
+                Tee Tilaus Nyt 📝
+                </a>
+                <a href="catalog.html" class="bg-white/10 backdrop-blur-sm hover:bg-white/30 text-white font-bold py-4 px-8 rounded-full text-lg transition border-2 border-white">
+                Katso Katalogi 🎭
+                </a>
+            </div>
+            </div>
+            
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
+                <i class="fa-solid fa-chevron-down text-white text-3xl"></i>
+            </div>
+        </section>
+
+        <section id="about" class="py-20 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-4xl mx-auto text-center">
+                    <div class="text-5xl mb-4">🏔️</div>
+                    <h2 class="text-4xl sm:text-5xl font-display font-bold text-gray-900 mb-6">
+                        Tervetuloa Muumilaaksoon!
+                    </h2>
+                    <div class="w-24 h-1 bg-primary mx-auto mb-8"></div>
+                    <p class="text-lg sm:text-xl text-gray-700 leading-relaxed mb-6">
+                        MuumiRent on Suomen ensimmäinen ja suurin muumipukujen vuokrauspalvelu! 
+                        Tarjoamme korkealaatuisia, mukavia ja tunnistettavia pukuja kaikista rakastetuista muumihahmoista.
+                    </p>
+                    <p class="text-lg sm:text-xl text-gray-700 leading-relaxed mb-6">
+                        Oli kyseessä sitten lasten syntymäpäivät, teemajuhlat, Halloween, karnevaalit, 
+                        messuosasto tai yritystapahtuma — meiltä löydät täydellisen puvun joka tilanteeseen!
+                    </p>
+                    <p class="text-lg sm:text-xl text-gray-700 leading-relaxed">
+                        <strong class="text-primary">Miksi ostaa kallis puku, kun voit vuokrata sen murto-osalla hinnasta?</strong> 
+                        Pukumme ovat ammattilaatuisia, puhtaita ja huollettuja. Varaa helposti verkossa! 🎉
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="puvut" class="py-20 bg-gradient-to-b from-moomin to-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <div class="text-5xl mb-4">🎭</div>
+                    <h2 class="text-4xl sm:text-5xl font-display font-bold text-gray-900 mb-6">
+                        Suosituimmat Muumipukumme
+                    </h2>
+                    <div class="w-24 h-1 bg-primary mx-auto mb-8"></div>
+                    <p class="text-lg text-gray-700 max-w-2xl mx-auto">
+                        Laaja valikoima kaikki rakastetuista muumihahmoista — kaikki koot saatavilla lapsille ja aikuisille!
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <article class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition moomin-card">
+                        <figure class="relative h-72 overflow-hidden bg-gradient-to-br from-blue to-blue-100">
+                            <img 
+                                src="images/kuva2.webp" 
+                                alt="Muumipeikko-puku - valkoinen ja pyöreä klassikko" 
+                                class="w-full h-full object-contain"
+                                loading="lazy"
+                            >
+                            <div class="absolute top-4 right-4 bg-accent text-gray-900 px-3 py-1 rounded-full text-sm font-bold">
+                                ⭐ Suosituin
+                            </div>
+                        </figure>
+                        <div class="p-6 text-center md:text-left">
+                            <h3 class="text-2xl font-display font-bold text-gray-900 mb-2">💙 Muumipeikko</h3>
+                            <p class="text-gray-600 mb-4">
+                                Klassinen Muumipeikko-puku! Pehmeä, valkoinen ja tunnistettava. 
+                                Täydellinen koko perheelle!
+                            </p>
+                            <div class="mb-4">
+                                <span class="inline-block bg-blue/20 text-blue-800 text-xs px-3 py-1 rounded-full mr-2">Lapset</span>
+                                <span class="inline-block bg-blue/20 text-blue-800 text-xs px-3 py-1 rounded-full">Aikuiset</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-primary">45€<span class="text-sm font-normal text-gray-600">/vkl</span></span>
+                                <a href="#yhteystiedot" class="bg-primary hover:bg-secondary text-white px-6 py-2 rounded-full font-semibold transition">
+                                    Varaa
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition moomin-card">
+                        <figure class="relative h-72 overflow-hidden bg-gradient-to-br from-pink to-pink-100">
+                            <img 
+                                src="images/kuva3.webp" 
+                                alt="Muumimamma-puku raidallisella esiliinalla" 
+                                class="w-full h-full object-contain"
+                                loading="lazy"
+                            >
+                        </figure>
+                        <div class="p-6 text-center md:text-left">
+                            <h3 class="text-2xl font-display font-bold text-gray-900 mb-2">💕 Muumimamma</h3>
+                            <p class="text-gray-600 mb-4">
+                                Lämminhenkinen Muumimamma raidallisella esiliinalla ja käsilaukulla. 
+                                Rakastettu hahmo!
+                            </p>
+                            <div class="mb-4">
+                                <span class="inline-block bg-pink/20 text-pink-800 text-xs px-3 py-1 rounded-full mr-2">Aikuiset</span>
+                                <span class="inline-block bg-pink/20 text-pink-800 text-xs px-3 py-1 rounded-full">Tytöt</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-primary">50€<span class="text-sm font-normal text-gray-600">/vkl</span></span>
+                                <a href="#yhteystiedot" class="bg-primary hover:bg-secondary text-white px-6 py-2 rounded-full font-semibold transition">
+                                    Varaa
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition moomin-card">
+                        <figure class="relative h-72 overflow-hidden bg-gradient-to-br from-yellow-50 to-yellow-100">
+                            <img 
+                                src="images/kuva4.webp" 
+                                alt="Muumipappa-puku mustassa silinterihatussa" 
+                                class="w-full h-full object-contain"
+                                loading="lazy"
+                            >
+                            <div class="absolute top-4 right-4 bg-blue text-white px-3 py-1 rounded-full text-sm font-bold">
+                                ⭐ Miesten Suosikki!
+                            </div>
+                        </figure>
+                        <div class="p-6 text-center md:text-left">
+                            <h3 class="text-2xl font-display font-bold text-gray-900 mb-2">🎩 Muumipappa</h3>
+                            <p class="text-gray-600 mb-4">
+                                Arvokas ja seikkailunhaluinen Muumipappa mustassa silinterihatussaan.
+                                 Sopii täydellisesti rauhalliselle pohdiskelijalle tai tarinankertojalle!
+                            </p>
+                            <div class="mb-4">
+                                <span class="inline-block bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full mr-2">Aikuiset</span>
+                                <span class="inline-block bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full">Pojat</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-primary">50€<span class="text-sm font-normal text-gray-600">/vkl</span></span>
+                                <a href="#yhteystiedot" class="bg-primary hover:bg-secondary text-white px-6 py-2 rounded-full font-semibold transition">
+                                    Varaa
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition moomin-card">
+                        <figure class="relative h-72 overflow-hidden bg-gradient-to-br from-red-50 to-red-100">
+                            <img 
+                                src="images/kuva5.webp" 
+                                alt="Nipsu -puku ruskealla turkilla" 
+                                class="w-full h-full object-contain"
+                                loading="lazy"
+                            >
+                        </figure>
+                        <div class="p-6 text-center md:text-left">
+                            <h3 class="text-2xl font-display font-bold text-gray-900 mb-2">🔴 Nipsu</h3>
+                            <p class="text-gray-600 mb-4">
+                               Arka mutta lojaali Nipsu, joka vähän pelkää kaikkea mutta haluaa silti olla mukana.
+                               Pehmeää, söpöä ja hieman hermostunutta energiaa.
+                            </p>
+                            <div class="mb-4">
+                                <span class="inline-block bg-red-100 text-red-800 text-xs px-3 py-1 rounded-full mr-2">Lapset</span>
+                                <span class="inline-block bg-red-100 text-red-800 text-xs px-3 py-1 rounded-full">Aikuiset</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-primary">45€<span class="text-sm font-normal text-gray-600">/vkl</span></span>
+                                <a href="#yhteystiedot" class="bg-primary hover:bg-secondary text-white px-6 py-2 rounded-full font-semibold transition">
+                                    Varaa
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition moomin-card">
+                        <figure class="relative h-72 overflow-hidden bg-gradient-to-br from-green-50 to-green-100">
+                            <img 
+                                src="images/kuva6.webp" 
+                                alt="Nuuskamuikkunen-puku hattuineen ja harmonikkoineen" 
+                                class="w-full h-full object-contain"
+                                loading="lazy"
+                            >
+                        </figure>
+                        <div class="p-6 text-center md:text-left">
+                            <h3 class="text-2xl font-display font-bold text-gray-900 mb-2">🌲 Nuuskamuikkunen</h3>
+                            <p class="text-gray-600 mb-4">
+                                Seikkailija Nuuskamuikkunen vihreällä hatulla ja retkeilijälookilla. 
+                                Poikien suosikki!
+                            </p>
+                            <div class="mb-4">
+                                <span class="inline-block bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full mr-2">Pojat</span>
+                                <span class="inline-block bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Miehet</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-primary">45€<span class="text-sm font-normal text-gray-600">/vkl</span></span>
+                                <a href="#yhteystiedot" class="bg-primary hover:bg-secondary text-white px-6 py-2 rounded-full font-semibold transition">
+                                    Varaa
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition moomin-card">
+                        <figure class="relative h-72 overflow-hidden bg-gradient-to-br from-purple-50 to-purple-100">
+                            <img 
+                                src="images/kuva7.webp" 
+                                alt="Niiskuneiti-asu: suloinen ja tunnistettava hahmopuku kaikenlaisiin naamiais- ja teematapahtumiin" 
+                                class="w-full h-full object-contain"
+                                loading="lazy"
+                            >
+                            <div class="absolute top-4 right-4 bg-pink text-white px-3 py-1 rounded-full text-sm font-bold">
+                                ⭐ Tyttöjen Suosikki
+                            </div>
+                        </figure>
+                        <div class="p-6 text-center md:text-left">
+                            <h3 class="text-2xl font-display font-bold text-gray-900 mb-2">👸 Niiskuneiti</h3>
+                            <p class="text-gray-600 mb-4">
+                                Lempeä Niiskuneiti-puku —  
+                                Suloinen ja ainutlaatuinen, kuten Niiskuneiti itse.
+                            </p>
+                            <div class="mb-4">
+                                <span class="inline-block bg-pink/50 text-xs px-3 py-1 rounded-full mr-2">Aikuiset</span>
+                                <span class="inline-block bg-pink/50 text-xs px-3 py-1 rounded-full">Tytöt</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-primary">55€<span class="text-sm font-normal text-gray-600">/vkl</span></span>
+                                <a href="#yhteystiedot" class="bg-primary hover:bg-secondary text-white px-6 py-2 rounded-full font-semibold transition">
+                                    Varaa
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="text-center mt-12">
+                    <p class="text-gray-600 mb-4">
+                        <strong>Huom!</strong> Meiltä löytyy myös: Haisuli, Mörkö, Hattivatit, Tiuhti & Viuhti ja paljon muuta!
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="edut" class="py-20 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <div class="text-5xl mb-4">✨</div>
+                    <h2 class="text-4xl sm:text-5xl font-display font-bold text-gray-900 mb-6">
+                        Miksi Vuokrata Meiltä?
+                    </h2>
+                    <div class="w-24 h-1 bg-primary mx-auto mb-8"></div>
+                    <p class="text-lg text-gray-700 max-w-2xl mx-auto">
+                        Tarjoamme enemmän kuin pelkkiä pukuja — tarjoamme elämyksiä!
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <article class="text-center p-6 rounded-xl hover:bg-moomin transition">
+                        <div class="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa-solid fa-star text-primary text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Korkea Laatu</h3>
+                        <p class="text-gray-600">
+                            Kaikki pukumme ovat ammattilaatuisia, tunnistettavia ja mukavia käyttää koko päivän.
+                        </p>
+                    </article>
+
+                    <article class="text-center p-6 rounded-xl hover:bg-moomin transition">
+                        <div class="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa-solid fa-shirt text-primary text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Puhtaat & Huolletut</h3>
+                        <p class="text-gray-600">
+                            Jokainen puku pestään ja huolletaan ammattimaisesti jokaisen vuokrauksen jälkeen.
+                        </p>
+                    </article>
+
+                    <article class="text-center p-6 rounded-xl hover:bg-moomin transition">
+                        <div class="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa-solid fa-ruler text-primary text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Kaikki Koot</h3>
+                        <p class="text-gray-600">
+                            Lapsille ja aikuisille — puvut koossa 90 cm aina 2XL:ään asti. Jokaiselle sopiva!
+                        </p>
+                    </article>
+
+                    <article class="text-center p-6 rounded-xl hover:bg-moomin transition">
+                        <div class="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa-solid fa-truck-fast text-primary text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Nopea Toimitus</h3>
+                        <p class="text-gray-600">
+                            Nouto myymälästä tai toimitus ovellesi pääkaupunkiseudulla. Postitus koko Suomeen!
+                        </p>
+                    </article>
+
+                    <article class="text-center p-6 rounded-xl hover:bg-moomin transition">
+                        <div class="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa-solid fa-piggy-bank text-primary text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Edulliset Hinnat</h3>
+                        <p class="text-gray-600">
+                            Viikonloppu vain 45-55€! Viikkovuokraus -30% ja kuukausivuokraus -50% alennuksella.
+                        </p>
+                    </article>
+
+                    <article class="text-center p-6 rounded-xl hover:bg-moomin transition">
+                        <div class="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa-solid fa-calendar-days text-primary text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Joustava Vuokraus</h3>
+                        <p class="text-gray-600">
+                            Vuokraa viikonlopuksi, viikoksi tai kuukaudeksi. Varaa verkossa helposti 24/7.
+                        </p>
+                    </article>
+
+                    <article class="text-center p-6 rounded-xl hover:bg-moomin transition">
+                        <div class="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa-solid fa-users text-primary text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Ryhmäalennukset</h3>
+                        <p class="text-gray-600">
+                            Vuokraa 5+ pukua ja saat -15% alennuksen! Täydellinen syntymäpäiville ja tapahtumiin.
+                        </p>
+                    </article>
+
+                    <article class="text-center p-6 rounded-xl hover:bg-moomin transition">
+                        <div class="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa-solid fa-headset text-primary text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Asiakaspalvelu</h3>
+                        <p class="text-gray-600">
+                            Ystävällinen palvelu auttaa sinua löytämään täydellisen puvun ja oikean koon.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-gradient-to-b from-moomin to-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <div class="text-5xl mb-4">🎉</div>
+                    <h2 class="text-4xl sm:text-5xl font-display font-bold text-gray-900 mb-6">
+                        Täydellinen Puku Joka Tilanteeseen
+                    </h2>
+                    <div class="w-24 h-1 bg-primary mx-auto"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                    <div class="bg-white p-6 rounded-xl shadow-md text-center">
+                        <div class="text-4xl mb-3">🎂</div>
+                        <h3 class="font-bold text-lg mb-2">Lasten Syntymäpäivät</h3>
+                        <p class="text-gray-600 text-sm">Tee juhlista unohtumattomia muumiteemalla!</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-md text-center">
+                        <div class="text-4xl mb-3">🎃</div>
+                        <h3 class="font-bold text-lg mb-2">Halloween</h3>
+                        <p class="text-gray-600 text-sm">Mörkö ja muut hahmot — suosittuja Halloweenissa!</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-md text-center">
+                        <div class="text-4xl mb-3">🎭</div>
+                        <h3 class="font-bold text-lg mb-2">Teemajuhlat</h3>
+                        <p class="text-gray-600 text-sm">Järjestä muumiteemajuhlat koko porukalle!</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-md text-center">
+                        <div class="text-4xl mb-3">🎪</div>
+                        <h3 class="font-bold text-lg mb-2">Karnevaalit</h3>
+                        <p class="text-gray-600 text-sm">Erotut joukosta tunnistettavalla muumipuvulla!</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-md text-center">
+                        <div class="text-4xl mb-3">🏢</div>
+                        <h3 class="font-bold text-lg mb-2">Yritystapahtumat</h3>
+                        <p class="text-gray-600 text-sm">Maskotit messuille ja tapahtumiin!</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-md text-center">
+                        <div class="text-4xl mb-3">📸</div>
+                        <h3 class="font-bold text-lg mb-2">Kuvaussessiot</h3>
+                        <p class="text-gray-600 text-sm">Hauskat perhekuvat muumipuvuissa!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-gradient-to-r from-primary to-secondary text-white">
+             <h2 class="text-3xl font-bold mb-4 sr-only">Tietoa Meistä</h2>
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+                <div class="text-5xl font-bold mb-2">1500+</div>
+                <div class="text-lg opacity-90">Tyytyväistä asiakasta</div>
+            </div>
+            <div>
+                <div class="text-5xl font-bold mb-2">25+</div>
+                <div class="text-lg opacity-90">Erilaista pukua</div>
+            </div>
+            <div>
+                <div class="text-5xl font-bold mb-2">5+</div>
+                <div class="text-lg opacity-90">Vuotta toiminnassa</div>
+            </div>
+            <div>
+                <div class="text-5xl font-bold mb-2">5/5</div>
+                <div class="text-lg opacity-90">Asiakastyytyväisyys</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-4xl mx-auto bg-gradient-to-br from-moomin to-blue-100 rounded-3xl shadow-2xl overflow-hidden">
+                    <div class="md:flex">
+                        <div class="md:w-1/2">
+                            <img 
+                                src="images/kuva8.webp" 
+                                alt="Iloisia ihmisiä muumipuvuissa juhlimassa yhdessä" 
+                                class="w-full h-full object-cover"
+                                loading="lazy"
+                            >
+                        </div>
+                        <div class="md:w-1/2 p-8 lg:p-12 flex flex-col justify-center text-center">
+                            <div class="text-5xl mb-4">🎉</div>
+                            <h2 class="text-3xl lg:text-4xl font-display font-bold text-gray-900 mb-4">
+                                Tee Juhlista Ikimuistoiset!
+                            </h2>
+                            <p class="text-lg text-gray-700 mb-6">
+                                Varaa muumipukusi jo tänään ja saat 10% alennuksen ensimmäisestä vuokrauksesta 
+                                koodilla: <strong class="text-primary">MUUMI10</strong>
+                            </p>
+                            <div class="space-y-4">
+                                <a href="#yhteystiedot" class="block w-full bg-accent hover:bg-orange-400 text-gray-900 text-center font-bold py-4 px-8 rounded-full text-lg transition transform hover:scale-105 shadow-lg">
+                                    Varaa Nyt 🎭
+                                </a>
+                                <a href="catalog.html" class="block w-full bg-primary hover:bg-secondary text-white text-center font-bold py-4 px-8 rounded-full text-lg transition">
+                                    Siirry Katalogiin
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="yhteystiedot" class="bg-gray-900 text-gray-300 py-12 text-center md:text-left">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center justify-center md:justify-start space-x-3 mb-4 text-center md:text-left">
+                    <div class="text-3xl">🎭</div>
+                    <h3 class="text-2xl font-display font-bold text-white">MuumiRent</h3>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        Suomen suosituin ja suurin muumipukujen vuokrauspalvelu.
+                    </p>
+                    <div class="flex justify-center md:justify-start space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-primary transition text-2xl" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-primary transition text-2xl" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-primary transition text-2xl" aria-label="TikTok">
+                    <i class="fa-brands fa-tiktok"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-primary transition text-2xl" aria-label="Pinterest">
+                    <i class="fa-brands fa-pinterest"></i>
+                    </a>
+                </div>
+
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-4">Pikalinkit</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="hover:text-primary transition">Etusivu</a></li>
+                        <li><a href="#about" class="hover:text-primary transition">Tietoa meistä</a></li>
+                        <li><a href="#edut" class="hover:text-primary transition">Palvelumme</a></li>
+                        <li><a href="catalog.html" class="hover:text-primary transition">Pukukatalogi</a></li>
+                        <li><a href="order.html" class="hover:text-primary transition">Tee tilaus</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Vuokrausehdot</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-4 ">Yhteystiedot</h4>
+                    <ul class="space-y-3 text-center md:text-left">
+                    <li class="flex flex-col items-center md:flex-row md:items-start">
+                    <i class="fa-solid fa-location-dot text-primary mb-2 md:mb-0 md:mr-3"></i>
+                    <span>Muumikatu 123<br>00100 Helsinki</span>
+                    </li>
+
+                    <li class="flex flex-col items-center md:flex-row md:items-center">
+                    <i class="fa-solid fa-phone text-primary mb-2 md:mb-0 md:mr-3"></i>
+                    <a href="tel:+358501234567" class="hover:text-primary transition">+358 50 123 4567</a>
+                    </li>
+
+                    <li class="flex flex-col items-center md:flex-row md:items-center">
+                    <i class="fa-solid fa-envelope text-primary mb-2 md:mb-0 md:mr-3"></i>
+                    <a href="mailto:info@muumirent.fi" class="hover:text-primary transition">info@muumirent.fi</a>
+                    </li>
+                </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-4">Aukioloajat</h4>
+                    <ul class="space-y-2">
+                        <li class="flex justify-between">
+                            <span>Ma-Pe:</span>
+                            <span class="text-white">10:00 - 18:00</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>La:</span>
+                            <span class="text-white">10:00 - 15:00</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Su:</span>
+                            <span class="text-white">Suljettu</span>
+                        </li>
+                    </ul>
+                    <p class="mt-4 text-sm text-gray-400">
+                        <i class="fa-solid fa-calendar-check text-primary mr-2"></i>
+                        Verkkovaraus 24/7
+                    </p>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 mt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+                    <p>&copy; 2024 MuumiRent. Kaikki oikeudet pidätetään.</p>
+                    <div class="flex space-x-6 mt-4 md:mt-0">
+                        <a href="#" class="hover:text-primary transition">Tietosuoja</a>
+                        <a href="#" class="hover:text-primary transition">Käyttöehdot</a>
+                        <a href="#" class="hover:text-primary transition">Evästeet</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#home" class="fixed bottom-8 right-8 bg-primary hover:bg-secondary text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition transform hover:scale-110 z-40" aria-label="Takaisin ylös">
+        <i class="fa-solid fa-arrow-up text-xl"></i>
+    </a>
+
+    <script src="menu.js"></script>
+
+</body>
+</html>
