@@ -21,6 +21,7 @@ const Header = () => {
             <li><a href="/#about" className="hover:text-primary transition">Tietoa</a></li>
             <li><a href="/#puvut" className="hover:text-primary transition">Katalogi</a></li>
             <li><a href="/#yhteystiedot" className="hover:text-primary transition">Yhteystiedot</a></li>
+            <li><Link to="/bookings" className="hover:text-primary transition">Kaikki Varaukset</Link></li>
             
             {/* Uusi: Tilaa Puku -painike */}
             <li>
