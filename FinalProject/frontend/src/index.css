@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce-gentle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.fade-in-up { animation: fadeInUp 0.8s ease-out; }
+.bounce-gentle { animation: bounce-gentle 2s ease-in-out infinite; }
+
+.hero-overlay {
+    background: linear-gradient(135deg, rgba(91, 155, 213, 0.5) 0%, rgba(74, 123, 167, 0.85) 100%);
+}
+
+.moomin-card { transition: all 0.3s ease; }
+.moomin-card:hover { transform: translateY(-10px) rotate(1deg); }
