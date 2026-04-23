@@ -35,24 +35,21 @@ const OrderPage = () => {
     setServerData(null);
 
     try {
-      // TÄMÄ ON MUUTETTU: Lähetetään data omaan lokaaliin backendiin (portti 3000)
-      const response = await fetch('http://localhost:3000/api/bookings', {
+      const response = await fetch('https://httpbin.org/post', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       });
 
-      if (!response.ok) throw new Error("Verkkovirhe tapahtui tai backend ei vastannut");
+      if (!response.ok) throw new Error("Verkkovirhe tapahtui");
 
       const result = await response.json();
-      
-      // TÄMÄ ON MUUTETTU: Oma backendimme palauttaa datan suoraan (ei result.json sisällä)
-      setServerData(result); 
+      setServerData(result.json); // Tallennetaan vain lomakkeen data ruudulle
       reset(); // Tyhjennetään lomake
       
     } catch (error) {
       console.error("Virhe lähetettäessä:", error);
-      alert("Lomakkeen lähetys epäonnistui. Tarkista onko backend käynnissä.");
+      alert("Lomakkeen lähetys epäonnistui.");
     } finally {
       setIsSubmitting(false);
     }
@@ -141,15 +138,15 @@ const OrderPage = () => {
             </button>
           </form>
 
-          {/* Onnistumisviesti ja tietokantaan tallennettu data */}
+          {/* Onnistumisviesti ja JSON-data */}
           {serverData && (
             <div className="mt-8 bg-green-50 border-2 border-green-200 rounded-xl p-6 fade-in-up">
               <h3 className="text-green-800 text-xl font-bold mb-2 flex items-center">
                 <i className="fa-solid fa-circle-check mr-2"></i> 
-                Varaus tallennettu tietokantaan onnistuneesti!
+                Tilaus lähetetty onnistuneesti!
               </h3>
               <p className="text-green-700 mb-4 text-sm">
-                Kiitos tilauksesta! Nähdään pian Muumilaaksossa. Tietokanta palautti seuraavat varauksen tiedot:
+                Palvelin (httpbin) palautti seuraavat tallennetut tiedot:
               </p>
               <pre className="bg-white p-4 rounded border border-green-100 text-sm text-gray-800 overflow-x-auto shadow-inner">
                 {JSON.stringify(serverData, null, 2)}
